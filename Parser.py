@@ -56,12 +56,12 @@ class Parser:
                 try:
                     print("tryy")
                     headers = {'User-Agent': ua.random}
-                    page = requests.get(url, headers=headers).content.decode()
+                    page = requests.get(url, headers=headers)
                     # page = urlopen(req, timeout=10).read().decode('utf8')
                     indic = 0
-                    soup = BeautifulSoup(page, 'html.parser')
+                    soup = BeautifulSoup(page.content.decode(), 'html.parser')
 
-                    if(page.getcode() == "200"):
+                    if(page.status_code == "200"):
                     	indec=0
 
                 except Exception as e:
